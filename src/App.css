@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  letter-spacing: 0.15rem;
+  font-family: sans-serif;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+}
+
+.header h1{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.header h5{
+  border-radius: 40px;
+  background-color: #6EBF8B;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.header h5:hover{
+  background-color: #019267;
+  color: white;
+}
+
+.movie-list{
+  padding: 20px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie-card{
+  margin: 10px 20px;
+}
+
+.movie-list img{
+  height: 300px;
+  border-radius: 5px;
+}
+
+.movie-list img:hover{
+  border: solid 5px #019267;
+  cursor: pointer;
+}
