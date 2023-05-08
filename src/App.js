@@ -12,6 +12,8 @@ function App() {
   const [movie,setMovie] = useState();
   const [searchResults, setSearchResults] = useState([]);
   const [searched,setSearched] = useState(false);
+  const [watchList,setWatchList] = useState([]);
+  const [isClicked, setIsClicked] = useState(false);
   
   useEffect(() => {
       if (movie) {
@@ -31,8 +33,8 @@ function App() {
       }
   },[movie])
 
-  function addtoWatchlist() {
-    console.log("added");
+  function addtoWatchlist(movie) {
+    setWatchList((watchList) => [...watchList, movie]);
   }
 
   function addtoWatched() {
@@ -45,9 +47,9 @@ function App() {
         <Header/>
         <div className='page-container'>
             <Routes>
-                <Route path="/" element={<Watchlist/>}/>
+                <Route path="/" element={<Watchlist watchList={watchList}/>}/>
                 <Route path="/watched" element={<Watched/>}/>
-                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched}/>}/>
+                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched} isClicked={isClicked} setIsClicked={setIsClicked}/>}/>
             </Routes>
         </div>
       </Router>
