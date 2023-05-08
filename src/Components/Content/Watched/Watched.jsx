@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Watched = () => {
+const Watched = ({watched}) => {
   return (
     <>
       <div className="header">
@@ -8,9 +8,13 @@ const Watched = () => {
             <h5>7 Movies</h5>
         </div> 
         <div className="movie-list">
-            <div className="movie-card">
-                <img src="https://www.komar.de/media/catalog/product/cache/4/image/9df78eab33525d08d6e5fb8d27136e95/4/-/4-4127_avengers_endgame_movie_poster_web.jpg" alt="img"/>
-            </div>
+          {watched.map((movie) => {
+            return (
+              <div className="movie-card" key={movie.id}>
+                  <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title}/>
+              </div>
+            );
+          })}
         </div>
     </>
   )

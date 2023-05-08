@@ -26,8 +26,8 @@ const Addfilm = (props) => {
                                             <h5 className='movie-name'>{result.title}</h5>
                                             <h5 className="movie-year">{result.release_date}</h5>
                                             <div className="buttons">
-                                                <button onClick={() => {addtoWatchlist(result);setIsClicked(true)}} disabled={isClicked}>ADD TO WATCH LIST</button>
-                                                <button onClick={addtoWatched}>ADD TO WATCHED</button>
+                                                <button onClick={() => {addtoWatchlist(result)}}>ADD TO WATCH LIST</button>
+                                                <button onClick={() => addtoWatched(result)}>ADD TO WATCHED</button>
                                             </div>
                                         </div>
                                     </div>
