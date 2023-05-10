@@ -21,3 +21,4 @@ const Watched = ({watched}) => {
 }
 
 export default Watched
+ 

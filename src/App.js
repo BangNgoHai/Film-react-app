@@ -34,12 +34,19 @@ function App() {
       }
   },[movie])
 
+
   function addtoWatchlist(movie) {
-    setWatchList((watchList) => [...watchList, movie]);
+    const movieIds = watchList.map((movie) => movie.id);  //In this code, first an array of existing movie IDs in the watchlist is created using map(). Then, the ID of the movie being added is checked against this array using includes(). If the movie ID is not already in the watchlist, it is added using setWatchList(). This should prevent duplicate movies from being added to the watchlist.
+    if (!movieIds.includes(movie.id)) {
+      setWatchList((watchList) => [...watchList, movie]);
+    }
   }
 
   function addtoWatched(movie) {
-    setWatched((watched) => [...watched, movie]);
+    const movieIds = watched.map((movie) => movie.id);  //In this code, first an array of existing movie IDs in the watchlist is created using map(). Then, the ID of the movie being added is checked against this array using includes(). If the movie ID is not already in the watchlist, it is added using setWatchList(). This should prevent duplicate movies from being added to the watchlist.
+    if (!movieIds.includes(movie.id)) {
+      setWatched((watchList) => [...watchList, movie]);
+    }
   }
 
   return (

@@ -10,6 +10,7 @@ const Addfilm = (props) => {
         setMovie(film);
         setSearched(true);
     }
+
     return (
         <>
             <div className='add-page'>
