@@ -14,7 +14,7 @@ function App() {
   const [searched,setSearched] = useState(false);
   const [watchList,setWatchList] = useState([]);
   const [watched,setWatched] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
+  const [add,isAdded] = useState(false);
   
   useEffect(() => {
       if (movie) {
@@ -39,6 +39,7 @@ function App() {
     const movieIds = watchList.map((movie) => movie.id);  //In this code, first an array of existing movie IDs in the watchlist is created using map(). Then, the ID of the movie being added is checked against this array using includes(). If the movie ID is not already in the watchlist, it is added using setWatchList(). This should prevent duplicate movies from being added to the watchlist.
     if (!movieIds.includes(movie.id)) {
       setWatchList((watchList) => [...watchList, movie]);
+      isAdded(true);
     }
   }
 
@@ -57,7 +58,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Watchlist watchList={watchList}/>}/>
                 <Route path="/watched" element={<Watched watched={watched}/>}/>
-                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched} isClicked={isClicked} setIsClicked={setIsClicked}/>}/>
+                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched} isAdded={isAdded} add={add}/>}/>
             </Routes>
         </div>
       </Router>

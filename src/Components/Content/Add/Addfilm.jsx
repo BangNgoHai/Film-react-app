@@ -1,8 +1,9 @@
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 import React, { useState } from 'react';
 import './addfilm.css';
 
 const Addfilm = (props) => {
-    const {setMovie, searchResults,setSearched,searched,addtoWatchlist,addtoWatched,isClicked, setIsClicked} = props;
+    const {setMovie, searchResults,setSearched,searched,addtoWatchlist,addtoWatched,isAdded,add} = props;
     const [film,setFilm] = useState();
 
     function handleSubmit (event) {
@@ -27,7 +28,7 @@ const Addfilm = (props) => {
                                             <h5 className='movie-name'>{result.title}</h5>
                                             <h5 className="movie-year">{result.release_date}</h5>
                                             <div className="buttons">
-                                                <button onClick={() => {addtoWatchlist(result)}}>ADD TO WATCH LIST</button>
+                                                <button onClick={() => {addtoWatchlist(result)}} >ADD TO WATCH LIST</button>
                                                 <button onClick={() => addtoWatched(result)}>ADD TO WATCHED</button>
                                             </div>
                                         </div>
