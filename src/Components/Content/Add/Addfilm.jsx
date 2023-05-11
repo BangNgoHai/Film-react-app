@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './addfilm.css';
 
 const Addfilm = (props) => {
-    const {setMovie, searchResults,setSearched,searched,addtoWatchlist,addtoWatched,setAdded,add} = props;
+    const {setMovie, searchResults,setSearched,searched,addtoWatchlist,addtoWatched,click,add} = props;
     const [film,setFilm] = useState();
 
     function handleSubmit (event) {
@@ -20,7 +20,8 @@ const Addfilm = (props) => {
                         {searched ? <>
                             <div className="movies">
                             {searchResults.map((result)=>{
-                                const isClicked = add.includes(result.id);
+                                const isAdded = add.includes(result.id);
+                                const isClicked = click.includes(result.id);
                                 return(
                                     <div className="movie" key={result.id}>
                                         <img src={`https://image.tmdb.org/t/p/w200${result.poster_path}`} alt={result.title}/>
@@ -28,8 +29,8 @@ const Addfilm = (props) => {
                                             <h5 className='movie-name'>{result.title}</h5>
                                             <h5 className="movie-year">{result.release_date}</h5>
                                             <div className="buttons">
-                                                <button disabled={isClicked} onClick={() => {addtoWatchlist(result)}}>ADD TO WATCH LIST</button>
-                                                <button onClick={() => addtoWatched(result)}>ADD TO WATCHED</button>
+                                                <button disabled={isAdded} onClick={() => {addtoWatchlist(result)}}>ADD TO WATCH LIST</button>
+                                                <button disabled={isClicked} onClick={() => addtoWatched(result)}>ADD TO WATCHED</button>
                                             </div>
                                         </div>
                                     </div>

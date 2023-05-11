@@ -15,6 +15,7 @@ function App() {
   const [watchList,setWatchList] = useState([]);
   const [watched,setWatched] = useState([]);
   const [add,setAdded] = useState([]);
+  const [click,setClicked] = useState([]);
 
   useEffect(() => {
       if (movie) {
@@ -58,7 +59,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Watchlist watchList={watchList}/>}/>
                 <Route path="/watched" element={<Watched watched={watched}/>}/>
-                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched} setAdded={setAdded} add={add}/>}/>
+                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched} click={click} add={add}/>}/>
             </Routes>
         </div>
       </Router>
