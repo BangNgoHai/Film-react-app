@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './addfilm.css';
 
 const Addfilm = (props) => {
-    const {setMovie, searchResults,setSearched,searched,addtoWatchlist,addtoWatched,click,add} = props;
+    const {setClicked,setAdded,setMovie, searchResults,setSearched,searched,addtoWatchlist,addtoWatched,click,add} = props;
     const [film,setFilm] = useState();
 
     function handleSubmit (event) {
         event.preventDefault();
-        setMovie(film);
-        setSearched(true);
+        if(film) {
+            setMovie(film);
+            setSearched(true);
+            setAdded([]);
+            setClicked([]);
+        }
     }
+
 
     return (
         <>

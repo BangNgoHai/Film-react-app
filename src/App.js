@@ -48,6 +48,7 @@ function App() {
     const movieIds = watched.map((movie) => movie.id);  //In this code, first an array of existing movie IDs in the watchlist is created using map(). Then, the ID of the movie being added is checked against this array using includes(). If the movie ID is not already in the watchlist, it is added using setWatchList(). This should prevent duplicate movies from being added to the watchlist.
     if (!movieIds.includes(movie.id)) {
       setWatched((watchList) => [...watchList, movie]);
+      setClicked((click) => [...click, movie.id]);
     }
   }
 
@@ -59,7 +60,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Watchlist watchList={watchList}/>}/>
                 <Route path="/watched" element={<Watched watched={watched}/>}/>
-                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched} click={click} add={add}/>}/>
+                <Route path="/add" element={<Addfilm setMovie={setMovie} searchResults={searchResults} setSearched={setSearched} searched={searched} addtoWatchlist={addtoWatchlist} addtoWatched={addtoWatched} click={click} add={add} setClicked={setClicked} setAdded={setAdded}/>}/>
             </Routes>
         </div>
       </Router>
