@@ -15,13 +15,18 @@ const Addfilm = (props) => {
         }
     }
 
+    const doSearch = (e) => {
+        console.log("doSearch: " + e.target.value);
+        setFilm(e.target.value)
+    }
 
     return (
         <>
             <div className='add-page'>
                 <div className="add-container">
                     <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder='Search ...' onChange={(e) => setFilm(e.target.value)}/>
+                        <input type="text" placeholder='Search ...' onChange={(e) => doSearch(e)}/>
+                    </form>
                         {searched ? <>
                             <div className="movies">
                             {searchResults.map((result)=>{
@@ -43,7 +48,6 @@ const Addfilm = (props) => {
                             })}
                         </div>
                         </> : null}
-                    </form>
                 </div>
             </div>
         </>

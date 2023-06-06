@@ -18,6 +18,7 @@ function App() {
   const [click,setClicked] = useState([]);
 
   useEffect(() => {
+    console.log('movi', movie)
       if (movie) {
         const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=ce5070cea2075e21c96680d7a37ce117&query=${movie}`;
         setError(null)
