@@ -3,11 +3,12 @@ import React from 'react';
 
 const Watchlist = (props) => {
   const {watchList} = props;
+  const movies = watchList.length;
   return (
     <>
        <div className="header">
             <h1>My Watchlist</h1>
-            <h5>5 Movies</h5>
+            <h5>{movies} Movies</h5>
         </div> 
         <div className="movie-list">
             {watchList.map((movie) => {

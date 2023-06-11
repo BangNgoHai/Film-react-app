@@ -63,3 +63,18 @@ body{
   border: solid 5px #019267;
   cursor: pointer;
 }
+
+@media(max-width:492px){
+  .header h1{
+    display: none;
+  }
+  .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header h5{
+    width: 200px;
+    text-align: center;
+  }
+}

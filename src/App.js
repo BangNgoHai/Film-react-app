@@ -17,6 +17,8 @@ function App() {
   const [add,setAdded] = useState([]);
   const [click,setClicked] = useState([]);
 
+  console.log(watchList.length);
+
   useEffect(() => {
     console.log('movi', movie)
       if (movie) {
