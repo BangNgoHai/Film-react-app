@@ -9,14 +9,17 @@ const Header = () => {
   const toggelMenu = () => {
     setMenuOpen(!isMenuOpen);
   }
+  const closeMenu = () => {
+    setMenuOpen(false);
+  }
   return (
     <>
       <nav className="navbar">
-          <Link className="title" to="/">Film</Link>
+          <Link className="title" to="/add">Film</Link>
           <ul className={isMenuOpen ? 'show' : ''}>
-            <Link className="li" to="/">Watch List</Link>
-            <Link className="li" to="/watched">Watched</Link>
-            <Link className="li" id="add" to="/add">+ADD</Link>
+            <Link className="li" to="/" onClick={closeMenu}>Watch List</Link>
+            <Link className="li" to="/watched" onClick={closeMenu}>Watched</Link>
+            <Link className="li" id="add" to="/add" onClick={closeMenu}>+ADD</Link>
           </ul>
           <label>
             <MenuIcon id="icon" onClick={toggelMenu}/>

@@ -78,3 +78,7 @@ body{
     text-align: center;
   }
 }
+
+.page-container{
+  z-index: 1;
+}
