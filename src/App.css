@@ -77,6 +77,18 @@ body{
     width: 200px;
     text-align: center;
   }
+  img{
+    max-height: 120px;
+  }
+  .buttons{
+    display: flex;
+    flex-direction: column;
+  }
+  .add-button{
+    max-height: 25px;
+    max-width: 140px;
+    margin-bottom: 5px;
+  }
 }
 
 .page-container{
